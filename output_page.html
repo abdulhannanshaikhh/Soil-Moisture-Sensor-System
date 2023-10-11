@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <title>Soil Moisture Sensor System</title>
+    <style>
+        /* CSS styles for the page layout and appearance */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #007acc;
+            padding: 10px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .meter-container {
+            width: 80%;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Soil Moisture Sensor Data</h1>
+    <div class="meter-container">
+        <h2>Moisture Level:</h2>
+        <!-- SVG semi-circle meter for moisture percentage -->
+        <svg height="200" width="200">
+            <!-- Gray circle representing the background -->
+            <circle cx="100" cy="100" r="90" stroke="#ccc" stroke-width="10" fill="none" />
+            <!-- Colored semi-circle based on moisture level -->
+            <path id="moisture-meter" fill="none" stroke="#007acc" stroke-width="10" d="" />
+            <!-- Text displaying the moisture percentage -->
+            <text x="80" y="120" font-size="24" fill="#007acc" id="moisture-text">0%</text>
+        </svg>
+    </div>
+    <script>
+        // JavaScript code for updating moisture level
+        function updateMoisture() {
+            // Fetch moisture data from the server
+            fetch('/readMoisture')
+                .then(response => response.text())
+                .then(data => {
+                    // Calculate the angle based on the moisture level
+                    const angle = (data / 100) * 180;
+                    // Update the path and text elements to reflect the moisture level
+                    document.getElementById('moisture-meter').setAttribute('d', `M 100,100 L 100,10 A 90,90 0 ${angle > 180 ? 1 : 0},1 ${100 - 90 * Math.sin(angle * Math.PI / 180)},${100 - 90 * Math.cos(angle * Math.PI / 180)}`);
+                    document.getElementById('moisture-text').textContent = data + '%';
+                });
+        }
+        // Periodically update moisture level every 2 seconds
+        setInterval(updateMoisture, 2000);
+    </script>
+</body>
+
+</html>

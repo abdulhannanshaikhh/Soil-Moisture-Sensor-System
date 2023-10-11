@@ -1,0 +1,32 @@
+Description:
+
+The ESP32 Soil Moisture Sensor project demonstrates how to use an ESP32 microcontroller to monitor soil moisture levels and display them on a web page. This project is useful for individuals involved in agriculture, gardening, or environmental monitoring, as it provides real-time information about soil moisture, enabling better control of irrigation and plant care.
+
+Key Features:
+Wireless Monitoring: The project uses the ESP32's Wi-Fi capability to wirelessly transmit soil moisture data to a web page.
+Real-Time Updates: The moisture level is continuously updated on the web page, ensuring that users have access to the most current data.
+
+Customization: Users can easily customize the project by modifying the code and HTML page to suit their preferences and requirements.
+
+Easy Integration: The project's open-source nature and detailed README make it accessible for makers, hobbyists, and developers looking to integrate soil moisture monitoring into their projects.
+
+Usage Scenario:
+Imagine a garden where plants require different levels of soil moisture. By deploying this system, gardeners can remotely monitor and adjust irrigation for specific plants based on their moisture requirements. This project empowers users to make informed decisions about water usage, leading to efficient gardening practices.
+
+Technology Stack:
+
+ESP32 Microcontroller
+Arduino IDE or PlatformIO
+Soil Moisture Sensor
+Wi-Fi Connectivity
+
+Components:
+➢Nodemcu ESP8266 
+➢ Battery (9v)
+➢ Moisture Sensor
+➢ Bread board
+➢ Jumper wire
+➢ Plant for testing
+
+Contributions:
+The project is open to contributions from the community. Users can help enhance and extend the system's features, making it more versatile and adaptable for various applications.
